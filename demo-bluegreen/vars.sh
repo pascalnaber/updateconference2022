@@ -1,0 +1,7 @@
+RESOURCEGROUP=aca-blue-green
+
+CONTAINERREGISTRY_NAME=romedockerimages
+ENVIRONMENT_NAME=updaterconf-appenvironment
+CONTAINERAPP_NAME=updateconf-app
+WORKSPACE_NAME=updateconf-workspace
+APPLICATIONINSIGHTS_NAME=updateconf-appinsights

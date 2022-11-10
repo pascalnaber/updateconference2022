@@ -1,0 +1,12 @@
+. ./vars.sh
+
+az deployment group create --resource-group $RESOURCEGROUP --template-file containerapp.bicep \
+--parameters containerImage=romedockerimages.azurecr.io/demo/helloworld:2 \
+containerPort=80 \
+useExternalIngress=true \
+containerRegistry=romedockerimages.azurecr.io \
+containerRegistryUsername=romedockerimages \
+containerRegistryPassword=$(az acr credential show -n $CONTAINERREGISTRY_NAME --query "passwords[0].value"  -o tsv) \
+containerAppName=$CONTAINERAPP_NAME \
+environmentName=$ENVIRONMENT_NAME \
+envVars=['{"name": "backgroundcolor", "value": "lawngreen"},{"name": "text", "value": "Welcome in Prague!"}']
